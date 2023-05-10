@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import { BsFillPersonLinesFill } from 'react-icons/bs';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+
 import { v4 as uuidv4 } from 'uuid';
+import { socialIconclasses, socialLinks } from '../ui/socialIcons';
 
 function NavBar() {
   const [nav, setNav] = useState(false);
@@ -32,9 +32,6 @@ function NavBar() {
     },
   ];
 
-  const socialIconclasses =
-    'rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300';
-
   const handleNav = () => {
     setNav(!nav);
   };
@@ -61,11 +58,8 @@ function NavBar() {
         <div>
           <ul className='hidden md:flex'>
             {navLinks.map(({ to, children }) => (
-              <Link href={to}>
-                <li
-                  key={uuidv4()}
-                  className='ml-10 text-sm uppercase hover:border-b'
-                >
+              <Link key={uuidv4()} href={to}>
+                <li className='ml-10 text-sm uppercase hover:border-b'>
                   {children}
                 </li>
               </Link>
@@ -94,8 +88,8 @@ function NavBar() {
             <div className='flex w-full items-center justify-between'>
               <Image
                 src='/../public/assets/mesLogos/Original_vert_clair.png'
-                width='80'
-                height='45'
+                width='70'
+                height='50'
                 alt='/'
               />
               <div
@@ -114,10 +108,8 @@ function NavBar() {
           <div className='py-4 flex flex-col'>
             <ul className='uppercase'>
               {navLinks.map(({ to, children }) => (
-                <Link href={to}>
-                  <li key={uuidv4()} className='py-4 text-sm'>
-                    {children}
-                  </li>
+                <Link key={uuidv4()} href={to}>
+                  <li className='py-4 text-sm'>{children}</li>
                 </Link>
               ))}
             </ul>
@@ -127,18 +119,11 @@ function NavBar() {
                 Let's connect
               </p>
               <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
-                <div className={socialIconclasses}>
-                  <FaLinkedinIn />
-                </div>
-                <div className={socialIconclasses}>
-                  <FaGithub />
-                </div>
-                <div className={socialIconclasses}>
-                  <AiOutlineMail />
-                </div>
-                <div className={socialIconclasses}>
-                  <BsFillPersonLinesFill />
-                </div>
+                {socialLinks.map((icon) => (
+                  <div key={uuidv4()} className={socialIconclasses}>
+                    {icon}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
