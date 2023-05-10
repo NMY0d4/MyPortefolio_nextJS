@@ -4,9 +4,36 @@ import Link from 'next/link';
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
+import { v4 as uuidv4 } from 'uuid';
 
 function NavBar() {
   const [nav, setNav] = useState(false);
+
+  const navLinks = [
+    {
+      to: '/',
+      children: 'Home',
+    },
+    {
+      to: '/',
+      children: 'About',
+    },
+    {
+      to: '/contact',
+      children: 'Projects',
+    },
+    {
+      to: '/',
+      children: 'Skills',
+    },
+    {
+      to: '/',
+      children: 'Contact',
+    },
+  ];
+
+  const socialIconclasses =
+    'rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300';
 
   const handleNav = () => {
     setNav(!nav);
@@ -33,25 +60,16 @@ function NavBar() {
         />
         <div>
           <ul className='hidden md:flex'>
-            <Link href='/'>
-              <li className='ml-10 text-sm uppercase hover:border-b'>Home</li>
-            </Link>
-            <Link href='/'>
-              <li className='ml-10 text-sm uppercase hover:border-b'>About</li>
-            </Link>
-            <Link href='/'>
-              <li className='ml-10 text-sm uppercase hover:border-b'>Skills</li>
-            </Link>
-            <Link href='/'>
-              <li className='ml-10 text-sm uppercase hover:border-b'>
-                Projects
-              </li>
-            </Link>
-            <Link href='/'>
-              <li className='ml-10 text-sm uppercase hover:border-b'>
-                Contact
-              </li>
-            </Link>
+            {navLinks.map(({ to, children }) => (
+              <Link href={to}>
+                <li
+                  key={uuidv4()}
+                  className='ml-10 text-sm uppercase hover:border-b'
+                >
+                  {children}
+                </li>
+              </Link>
+            ))}
           </ul>
           <div onClick={handleNav} className='md:hidden'>
             <AiOutlineMenu size={30} />
@@ -73,7 +91,6 @@ function NavBar() {
           }
         >
           <div>
-            {/* top menu navbar sm */}
             <div className='flex w-full items-center justify-between'>
               <Image
                 src='/../public/assets/mesLogos/Original_vert_clair.png'
@@ -96,21 +113,13 @@ function NavBar() {
           </div>
           <div className='py-4 flex flex-col'>
             <ul className='uppercase'>
-              <Link href='/'>
-                <li className='py-4 text-sm'>Home</li>
-              </Link>
-              <Link href='/'>
-                <li className='py-4 text-sm'>About</li>
-              </Link>
-              <Link href='/'>
-                <li className='py-4 text-sm'>Skills</li>
-              </Link>
-              <Link href='/'>
-                <li className='py-4 text-sm'>Projects</li>
-              </Link>
-              <Link href='/'>
-                <li className='py-4 text-sm'>Contact</li>
-              </Link>
+              {navLinks.map(({ to, children }) => (
+                <Link href={to}>
+                  <li key={uuidv4()} className='py-4 text-sm'>
+                    {children}
+                  </li>
+                </Link>
+              ))}
             </ul>
 
             <div className='pt-40'>
@@ -118,16 +127,16 @@ function NavBar() {
                 Let's connect
               </p>
               <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
-                <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
+                <div className={socialIconclasses}>
                   <FaLinkedinIn />
                 </div>
-                <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
+                <div className={socialIconclasses}>
                   <FaGithub />
                 </div>
-                <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
+                <div className={socialIconclasses}>
                   <AiOutlineMail />
                 </div>
-                <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
+                <div className={socialIconclasses}>
                   <BsFillPersonLinesFill />
                 </div>
               </div>
