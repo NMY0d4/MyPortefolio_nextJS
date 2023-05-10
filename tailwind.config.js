@@ -11,6 +11,9 @@ module.exports = {
         primary: '#5651e5',
         secondary: '#709dff',
       },
+      width: {
+        contWithXl: '1240px',
+      },
     },
   },
   plugins: [],
