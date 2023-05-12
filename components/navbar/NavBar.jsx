@@ -9,26 +9,26 @@ import { socialIconClasses, socialLinks } from '../ui/socialIcons';
 
 function NavBar() {
   const [nav, setNav] = useState(false);
-
+  const [shadow, setShadow] = useState(false);
   const navLinks = [
     {
-      to: '/',
+      to: '/#home',
       children: 'Home',
     },
     {
-      to: '/',
+      to: '/#about',
       children: 'About',
     },
     {
-      to: '/contact',
+      to: '/#projects',
       children: 'Projects',
     },
     {
-      to: '/',
+      to: '/#skills',
       children: 'Skills',
     },
     {
-      to: '/',
+      to: '/#contact',
       children: 'Contact',
     },
   ];
@@ -47,8 +47,21 @@ function NavBar() {
     return () => window.removeEventListener('resize', handleResize);
   }, [nav]);
 
+  useEffect(() => {
+    const handleShadow = () => {
+      if (window.scrollY >= 90) {
+        setShadow(true);
+      } else {
+        setShadow(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleShadow);
+    return () => window.removeEventListener('scroll', handleShadow);
+  }, []);
+
   return (
-    <div className='fixed w-full h-20 shadow-xl z-[100]'>
+    <div className={`fixed w-full h-20 ${shadow ? 'shadow-xl' : ''} z-[100]`}>
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
         <Image src={gmLogo} alt='/' width='60' height='60' />
         <div>
