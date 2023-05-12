@@ -2,7 +2,7 @@ import React from 'react';
 import natoursImg from '../../public/assets/projects/natours.jpg';
 import ProjectItem from './ProjectItem';
 
-const Projects = () => {
+const Project = () => {
   return (
     <div id='projects' className='w--full'>
       <div className='max-w-contWithXl mx-auto px-2 py-16'>
@@ -22,4 +22,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Project;

@@ -20,7 +20,7 @@ function NavBar() {
       children: 'About',
     },
     {
-      to: '/#projects',
+      to: '/projects',
       children: 'Projects',
     },
     {

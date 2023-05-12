@@ -3,7 +3,7 @@ import NavBar from '../components/navbar/NavBar';
 import Main from '../components/Main';
 import About from '../components/About';
 import Skills from '../components/Skills';
-import Projects from '../components/projects/Projects';
+// import Project from '../components/project';
 import Contact from '../components/Contact';
 
 export default function Home() {
@@ -17,11 +17,10 @@ export default function Home() {
         />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <NavBar />
       <Main />
       <About />
       <Skills />
-      <Projects />
+      {/* <Project /> */}
       <Contact />
     </div>
   );
