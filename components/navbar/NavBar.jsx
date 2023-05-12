@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import gmLogo from '../../public/assets/mesLogos/gmLogo.png';
 
 import { v4 as uuidv4 } from 'uuid';
-import { socialIconclasses, socialLinks } from '../ui/socialIcons';
+import { socialIconClasses, socialLinks } from '../ui/socialIcons';
 
 function NavBar() {
   const [nav, setNav] = useState(false);
@@ -49,12 +50,7 @@ function NavBar() {
   return (
     <div className='fixed w-full h-20 shadow-xl z-[100]'>
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
-        <Image
-          src='/../public/assets/mesLogos/Original_vert_clair.png'
-          alt='/'
-          width='90'
-          height='60'
-        />
+        <Image src={gmLogo} alt='/' width='60' height='60' />
         <div>
           <ul className='hidden md:flex'>
             {navLinks.map(({ to, children }) => (
@@ -86,12 +82,7 @@ function NavBar() {
         >
           <div>
             <div className='flex w-full items-center justify-between'>
-              <Image
-                src='/../public/assets/mesLogos/Original_vert_clair.png'
-                width='70'
-                height='50'
-                alt='/'
-              />
+              <Image src={gmLogo} width='50' height='50' alt='/' />
               <div
                 onClick={handleNav}
                 className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer'
@@ -115,12 +106,15 @@ function NavBar() {
             </ul>
 
             <div className='pt-40'>
-              <p className='uppercase tracking-widest text-[#5651e5]'>
+              <p className='uppercase tracking-widest text-primary'>
                 Let's connect
               </p>
               <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
                 {socialLinks.map((icon) => (
-                  <div key={uuidv4()} className={socialIconclasses}>
+                  <div
+                    key={uuidv4()}
+                    className={`${socialIconClasses} .m-icon-size`}
+                  >
                     {icon}
                   </div>
                 ))}

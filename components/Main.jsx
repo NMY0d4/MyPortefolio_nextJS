@@ -1,5 +1,5 @@
 import React from 'react';
-import { socialIconclasses, socialLinks } from './ui/socialIcons';
+import { socialIconClasses, socialLinks } from './ui/socialIcons';
 import { v4 as uuidv4 } from 'uuid';
 
 const Main = () => {
@@ -22,7 +22,10 @@ const Main = () => {
           </p>
           <div className='flex items-center justify-between max-w-[330px] m-auto py-4'>
             {socialLinks.map((icon) => (
-              <div key={uuidv4()} className={`${socialIconclasses} p-6`}>
+              <div
+                key={uuidv4()}
+                className={`${socialIconClasses} p-4 b-icon-size`}
+              >
                 {icon}
               </div>
             ))}

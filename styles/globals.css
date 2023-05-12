@@ -31,4 +31,16 @@
   button {
     @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-primary to-secondary text-white;
   }
+
+  .s-icon-size {
+    font-size: 0.8rem;
+  }
+
+  .m-icon-size {
+    font-size: 1rem;
+  }
+
+  .b-icon-size {
+    font-size: 1.5rem;
+  }
 }
