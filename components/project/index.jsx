@@ -1,6 +1,8 @@
 import React from 'react';
-import natoursImg from '../../public/assets/projects/natours.jpg';
 import ProjectItem from './ProjectItem';
+import { PROJECTS } from '../../projectData';
+
+
 
 const Project = () => {
   return (
@@ -12,9 +14,7 @@ const Project = () => {
         <h2 className='py-4'>what I've Built</h2>
         <div className='grid md:grid-cols-2 gap-8'>
           <ProjectItem
-            title='Natours'
-            backgroundImg={natoursImg}
-            projectUrl='/natours'
+            project={PROJECTS[0]}
           />
         </div>
       </div>

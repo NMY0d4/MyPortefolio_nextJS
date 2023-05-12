@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Project from '../../components/project';
 
 function Projects() {
-  return <Project />;
+  return (
+    <Fragment>
+      <Project />
+    </Fragment>
+  );
 }
 
 export default Projects;

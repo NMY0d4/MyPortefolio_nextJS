@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Fragment>
       <NavBar />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </Fragment>
   );
 }

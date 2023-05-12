@@ -12,7 +12,7 @@ function NavBar() {
   const [shadow, setShadow] = useState(false);
   const navLinks = [
     {
-      to: '/#home',
+      to: '/',
       children: 'Home',
     },
     {
@@ -113,7 +113,9 @@ function NavBar() {
             <ul className='uppercase'>
               {navLinks.map(({ to, children }) => (
                 <Link key={uuidv4()} href={to}>
-                  <li className='py-4 text-sm'>{children}</li>
+                  <li onClick={() => setNav(false)} className='py-4 text-sm'>
+                    {children}
+                  </li>
                 </Link>
               ))}
             </ul>
