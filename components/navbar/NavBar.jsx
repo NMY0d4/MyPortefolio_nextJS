@@ -74,7 +74,7 @@ function NavBar() {
     window.addEventListener('scroll', handleShadow);
     return () => window.removeEventListener('scroll', handleShadow);
   }, []);
-  console.log(linkColor);
+  
   return (
     <div
       className={`fixed w-full h-20 bg-${navBg} ${

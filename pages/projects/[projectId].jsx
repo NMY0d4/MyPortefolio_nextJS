@@ -38,7 +38,9 @@ const ProjectDetail = () => {
           <h2>Overview</h2>
           <p>{description}</p>
           <button className='px-8 py-2 mt-4 mr-8'>
-            <Link href={`${link}`}>Demo</Link>
+            <a href={link} target='_blank' rel='noopener noreferrer'>
+              Demo
+            </a>
           </button>
           <button className='px-8 py-2 mt-4'>Code</button>
         </div>
