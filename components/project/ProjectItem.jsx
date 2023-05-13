@@ -17,7 +17,7 @@ const ProjectItem = ({ project }) => {
           {title}
         </h3>
         <p className='pb-4 pt-2 text-white text-center'>NodeJS project</p>
-        <Link href={projectUrl}>
+        <Link href={projectUrl} >
           <p className='text-center py-3 rounded-lg bg-white text-gray-700 font-bold text-lg cursor-pointer'>
             More Info
           </p>

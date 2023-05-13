@@ -6,10 +6,15 @@ import gmLogo from '../../public/assets/mesLogos/gmLogo.png';
 
 import { v4 as uuidv4 } from 'uuid';
 import { socialIconClasses, socialLinks } from '../ui/socialIcons';
+import { useRouter } from 'next/router';
 
 function NavBar() {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
+  const [navBg, setNavBg] = useState('nbgColor');
+  const [linkColor, setLinkColor] = useState('navLinkColor');
+  const router = useRouter();
+
   const navLinks = [
     {
       to: '/',
@@ -38,6 +43,16 @@ function NavBar() {
   };
 
   useEffect(() => {
+    if (router.asPath === '/projects/natours') {
+      setNavBg('transparent');
+      setLinkColor('nbgColor');
+    } else {
+      setNavBg('nbgColor');
+      setLinkColor('navLinkColor');
+    }
+  }, [router]);
+
+  useEffect(() => {
     function handleResize() {
       if (window.innerWidth >= 768 && nav) {
         setNav(false);
@@ -59,16 +74,20 @@ function NavBar() {
     window.addEventListener('scroll', handleShadow);
     return () => window.removeEventListener('scroll', handleShadow);
   }, []);
-
+  console.log(linkColor);
   return (
-    <div className={`fixed w-full h-20 ${shadow ? 'shadow-xl' : ''} z-[100]`}>
+    <div
+      className={`fixed w-full h-20 bg-${navBg} ${
+        shadow ? 'shadow-xl' : ''
+      } z-[100] ease-in-out duration-300`}
+    >
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
         <Image src={gmLogo} alt='/' width='60' height='60' />
         <div>
-          <ul className='hidden md:flex'>
+          <ul className={`relative hidden md:flex text-${linkColor}`}>
             {navLinks.map(({ to, children }) => (
               <Link key={uuidv4()} href={to}>
-                <li className='ml-10 text-sm uppercase hover:border-b'>
+                <li className={`ml-10 text-sm uppercase hover:border-b`}>
                   {children}
                 </li>
               </Link>
@@ -89,7 +108,7 @@ function NavBar() {
         <div
           className={
             nav
-              ? 'fixed left-0 top-0 w-[75%] sm:w-[65%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500'
+              ? 'fixed left-0 top-0 w-[75%] sm:w-[65%] md:w-[45%] h-screen bg-nbgColor p-10 ease-in duration-500'
               : 'fixed left-[-100%] top-0 p-10 ease-in duration-500'
           }
         >

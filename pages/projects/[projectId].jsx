@@ -5,11 +5,12 @@ import { useRouter } from 'next/router';
 import { PROJECTS } from '../../projectData';
 import { absoCenter } from '../../components/ui/utilClasses';
 import { v4 as uuidv4 } from 'uuid';
+import Link from 'next/link';
 
 const ProjectDetail = () => {
   const router = useRouter();
   const { projectId } = router.query;
-  const { title, backgroundImg, description, projectUrl, technologies } =
+  const { title, backgroundImg, description, projectUrl, technologies, link } =
     PROJECTS[0];
 
   return (
@@ -32,14 +33,17 @@ const ProjectDetail = () => {
       </div>
 
       <div className='max-w-contWithXL mx-auto p-2 grid md:grid-cols-6 gap-8 pt-8'>
-        <div className='col-span-4'>
+        <div className='col-span-4 md:col-span-3 lg:col-span-4'>
           <p>Project</p>
           <h2>Overview</h2>
           <p>{description}</p>
-          <button className='px-8 py-2 mt-4 mr-8'>Demo</button>
+          <button className='px-8 py-2 mt-4 mr-8'>
+            <Link href={`${link}`}>Demo</Link>
+          </button>
           <button className='px-8 py-2 mt-4'>Code</button>
         </div>
-        <div className='col-span-4 md:col-span-2 shadow-xl shadow-gray-400 rounded-xl p-4'>
+
+        <div className='col-span-4 md:col-span-3 lg:col-span-2 shadow-xl shadow-gray-400 rounded-xl p-4'>
           <div className='p-2'>
             <p className='text-center font-bold pb-2'>Technologies</p>
             <div className='grid grid-cols-2 md:grid-cols-1'>
@@ -55,7 +59,9 @@ const ProjectDetail = () => {
             </div>
           </div>
         </div>
-        
+        <Link href='/projects'>
+          <p className='underline cursor-pointer'>Back</p>
+        </Link>
       </div>
     </div>
   );
