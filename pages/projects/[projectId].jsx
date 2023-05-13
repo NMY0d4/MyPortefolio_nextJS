@@ -3,14 +3,14 @@ import Image from 'next/image';
 import { RiRadioButtonFill } from 'react-icons/ri';
 import { useRouter } from 'next/router';
 import { PROJECTS } from '../../projectData';
-import { absoCenter } from '../../components/ui/utilClasses';
+import { absoCenter, scale110 } from '../../components/ui/utilClasses';
 import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
 
 const ProjectDetail = () => {
   const router = useRouter();
   const { projectId } = router.query;
-  const { title, backgroundImg, description, projectUrl, technologies, link } =
+  const { title, backgroundImg, description, technologies, link, githubLink } =
     PROJECTS[0];
 
   return (
@@ -39,12 +39,16 @@ const ProjectDetail = () => {
           </p>
           <h2>Overview</h2>
           <p className='py-2'>{description}</p>
-          <button className='px-8 py-2 mt-4 mr-8'>
+          <button className={`px-8 py-2 mt-4 mr-8 ${scale110}`}>
             <a href={link} target='_blank' rel='noopener noreferrer'>
               Demo
             </a>
           </button>
-          <button className='px-8 py-2 mt-4'>Code</button>
+          <button className={`px-8 py-2 mt-4 ${scale110}`}>
+            <a href={githubLink} target='_blank' rel='noopener noreferrer'>
+              Code{' '}
+            </a>
+          </button>
         </div>
 
         <div className='col-span-4 md:col-span-3 lg:col-span-2 shadow-xl shadow-gray-400 rounded-xl p-4'>
@@ -64,7 +68,7 @@ const ProjectDetail = () => {
           </div>
         </div>
         <Link href='/projects'>
-          <p className='underline cursor-pointer'>Back</p>
+          <p className='underline ml-4 text-xl cursor-pointer'>Back</p>
         </Link>
       </div>
     </div>
