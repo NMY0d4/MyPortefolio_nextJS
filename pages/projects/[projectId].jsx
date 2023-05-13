@@ -34,9 +34,11 @@ const ProjectDetail = () => {
 
       <div className='max-w-contWithXL mx-auto p-2 grid md:grid-cols-6 gap-8 pt-8'>
         <div className='col-span-4 md:col-span-3 lg:col-span-4'>
-          <p>Project</p>
+          <p className='text-xl tracking-widest uppercase text-primary'>
+            Project
+          </p>
           <h2>Overview</h2>
-          <p>{description}</p>
+          <p className='py-2'>{description}</p>
           <button className='px-8 py-2 mt-4 mr-8'>
             <a href={link} target='_blank' rel='noopener noreferrer'>
               Demo

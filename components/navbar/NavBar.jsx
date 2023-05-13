@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import gmLogo from '../../public/assets/mesLogos/gmLogo.png';
+import theme from '../../tailwind.config.js';
 
 import { v4 as uuidv4 } from 'uuid';
 import { socialIconClasses, socialLinks } from '../ui/socialIcons';
@@ -14,6 +15,8 @@ function NavBar() {
   const [navBg, setNavBg] = useState('nbgColor');
   const [linkColor, setLinkColor] = useState('navLinkColor');
   const router = useRouter();
+
+  const { nbgColor, navLinkColor } = theme.theme.extend.colors;
 
   const navLinks = [
     {
@@ -45,10 +48,10 @@ function NavBar() {
   useEffect(() => {
     if (router.asPath === '/projects/natours') {
       setNavBg('transparent');
-      setLinkColor('nbgColor');
+      setLinkColor(nbgColor);
     } else {
       setNavBg('nbgColor');
-      setLinkColor('navLinkColor');
+      setLinkColor(navLinkColor);
     }
   }, [router]);
 
@@ -74,7 +77,6 @@ function NavBar() {
     window.addEventListener('scroll', handleShadow);
     return () => window.removeEventListener('scroll', handleShadow);
   }, []);
-  
   return (
     <div
       className={`fixed w-full h-20 bg-${navBg} ${
@@ -84,7 +86,10 @@ function NavBar() {
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
         <Image src={gmLogo} alt='/' width='60' height='60' />
         <div>
-          <ul className={`relative hidden md:flex text-${linkColor}`}>
+          <ul
+            style={{ color: `${linkColor}` }}
+            className={`relative hidden md:flex`}
+          >
             {navLinks.map(({ to, children }) => (
               <Link key={uuidv4()} href={to}>
                 <li className={`ml-10 text-sm uppercase hover:border-b`}>
