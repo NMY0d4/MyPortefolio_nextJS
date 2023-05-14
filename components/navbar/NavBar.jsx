@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import gmLogo from '../../public/assets/mesLogos/gmLogo.png';
 import theme from '../../tailwind.config.js';
-
 import { v4 as uuidv4 } from 'uuid';
 import { socialIconClasses, socialLinks } from '../ui/socialIcons';
 import { useRouter } from 'next/router';
+import { navLinks } from '../ui/utilClasses';
 
 function NavBar() {
   const [nav, setNav] = useState(false);
@@ -17,29 +17,6 @@ function NavBar() {
   const router = useRouter();
 
   const { nbgColor, navLinkColor } = theme.theme.extend.colors;
-
-  const navLinks = [
-    {
-      to: '/',
-      children: 'Home',
-    },
-    {
-      to: '/#about',
-      children: 'About',
-    },
-    {
-      to: '/projects',
-      children: 'Projects',
-    },
-    {
-      to: '/#skills',
-      children: 'Skills',
-    },
-    {
-      to: '/#contact',
-      children: 'Contact',
-    },
-  ];
 
   const handleNav = () => {
     setNav(!nav);
@@ -84,7 +61,7 @@ function NavBar() {
       } z-[100] ease-in-out duration-300`}
     >
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
-        <Image src={gmLogo} alt='/' width='60' height='60' />
+        <Image src={gmLogo} alt='/' width='70' height='60' />
         <div>
           <ul
             style={{ color: `${linkColor}` }}
@@ -119,7 +96,7 @@ function NavBar() {
         >
           <div>
             <div className='flex w-full items-center justify-between'>
-              <Image src={gmLogo} width='50' height='50' alt='/' />
+              <Image src={gmLogo} width='60' height='50' alt='/' />
               <div
                 onClick={handleNav}
                 className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer'

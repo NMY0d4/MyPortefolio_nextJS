@@ -28,15 +28,17 @@ function Contact() {
               </div>
               <div>
                 <h2 className='py-2'>Grégory Marini</h2>
-                <p className='py-4'>Full-Stack javascript developer</p>
+                <p className='py-4 font-bold'>
+                  Full-Stack javascript developer
+                </p>
                 <p className='py-4'>
                   I am available for mission or full-time positions. Contact me
                   and let's talk.
                 </p>
               </div>
               <div>
-                <p className='uppercase pt-8'>Connect With Me</p>
-                <div className='flex items-center justify-around m-auto py-4'>
+                <p className='uppercase pt-8 text-primary'>Connect With Me</p>
+                <div className='flex items-center max-w-[80%] justify-around m-auto py-4'>
                   {socialLinks.map((icon) => (
                     <div
                       key={uuidv4()}
