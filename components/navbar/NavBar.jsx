@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
@@ -14,6 +14,7 @@ function NavBar() {
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState('nbgColor');
   const [linkColor, setLinkColor] = useState('navLinkColor');
+
   const router = useRouter();
 
   const { nbgColor, navLinkColor } = theme.theme.extend.colors;
@@ -54,6 +55,7 @@ function NavBar() {
     window.addEventListener('scroll', handleShadow);
     return () => window.removeEventListener('scroll', handleShadow);
   }, []);
+
   return (
     <div
       className={`fixed w-full h-20 bg-${navBg} ${
