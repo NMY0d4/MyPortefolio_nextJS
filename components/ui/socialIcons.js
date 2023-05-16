@@ -6,8 +6,10 @@ export const socialIconClasses =
   'rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-300';
 
 export const socialLinks = [
-  <FaLinkedinIn />,
-  <FaGithub />,
-  <AiOutlineMail />,
-  <BsFillPersonFill />,
+  <a href='/'>
+    <FaLinkedinIn />
+  </a>,
+  <a href='/'><FaGithub /></a>,
+  <a href='/'><AiOutlineMail /></a>,
+  <a href='/'><BsFillPersonFill /></a>,
 ];

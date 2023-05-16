@@ -1,24 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { absoCenter, scale110 } from '../ui/utilClasses';
 
 const ProjectItem = ({ project }) => {
   const { title, backgroundImg, projectUrl } = project;
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
-    <div className='relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-400 rounded-xl p-4 group hover:bg-gradient-to-r from-primary to-secondary'>
+    <div
+      className={`relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-400 rounded-xl p-4 group transition duration-500 ${
+        isHovered ? 'bg-gradient-to-r from-primary to-secondary' : 'bg-white'
+      }`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Image
-        className='rounded-xl group-hover:opacity-10'
+        className='rounded-xl'
         src={backgroundImg}
         placeholder='blur'
-        alt='/'
+        alt={`$projet portefolio ${title}`}
       />
-      <div className='hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'>
-        <h3 className='text-2xl text-white tracking-wider text-center'>
-          {title}
-        </h3>
-        <p className='pb-4 pt-2 text-white text-center'>NodeJS project</p>
-        <Link href={projectUrl} >
-          <p className='text-center py-3 rounded-lg bg-white text-gray-700 font-bold text-lg cursor-pointer'>
+      <div
+        className={`absolute bg-gradient-to-r p-4 rounded-xl from-primary to-secondary top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center transition-opacity duration-300 ${
+          isHovered ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <h3 className='text-2xl text-white tracking-wider'>{title}</h3>
+        <p className='pb-4 pt-2 text-white'>NodeJS project</p>
+        <Link href={projectUrl}>
+          <p
+            className={`py-3 rounded-lg bg-white text-gray-700 font-bold text-lg cursor-pointer ${scale110}`}
+          >
             More Info
           </p>
         </Link>
