@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { scale110 } from '../ui/utilClasses';
 
 function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);
@@ -37,7 +38,7 @@ function AuthForm() {
         </div>
 
         <div className='mx-auto'>
-          <button className='py-2 px-6'>
+          <button className={`py-2 px-6 ${scale110}`}>
             {isLogin ? 'Login' : 'Create Account'}
           </button>
         </div>

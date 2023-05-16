@@ -71,7 +71,9 @@ function NavBar() {
           >
             {navLinks.map(({ to, children }) => (
               <Link key={uuidv4()} href={to}>
-                <li className={`ml-10 text-sm uppercase hover:border-b`}>
+                <li
+                  className={`ml-10 text-sm uppercase hover:border-b hover:border-primary`}
+                >
                   {children}
                 </li>
               </Link>
