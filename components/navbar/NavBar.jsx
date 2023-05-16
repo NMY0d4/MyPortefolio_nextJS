@@ -79,7 +79,11 @@ function NavBar() {
               </Link>
             ))}
           </ul>
-          <div onClick={handleNav} className='md:hidden'>
+          <div
+            onClick={handleNav}
+            style={{ color: `${linkColor}` }}
+            className='md:hidden'
+          >
             <AiOutlineMenu size={30} />
           </div>
         </div>

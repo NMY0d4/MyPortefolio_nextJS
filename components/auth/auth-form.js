@@ -14,6 +14,7 @@ function AuthForm() {
         {isLogin ? 'Login' : 'Sign Up'}
       </h1>
       <form className='h-[40vh] pt-8 flex flex-col gap-10'>
+      
         <div className='mb-4'>
           <label htmlFor='email' className='text-navLinkColor'>
             Your Email
@@ -25,6 +26,7 @@ function AuthForm() {
             className='block w-full px-4 py-2 rounded-md border border-gray-300 bg-nbgColor focus:outline-none focus:ring-primary focus:border-primary'
           />
         </div>
+
         <div className='mb-4'>
           <label htmlFor='password' className='text-navLinkColor'>
             Your Password
@@ -42,6 +44,7 @@ function AuthForm() {
             {isLogin ? 'Login' : 'Create Account'}
           </button>
         </div>
+        
       </form>
     </section>
   );

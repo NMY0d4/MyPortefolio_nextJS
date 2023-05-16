@@ -38,17 +38,13 @@ const ProjectDetail = () => {
             Project
           </p>
           <h2>Overview</h2>
-          <p className='py-2'>{description}</p>
-          <button className={`px-8 py-2 mt-4 mr-8 ${scale110}`}>
-            <a href={link} target='_blank' rel='noopener noreferrer'>
-              Demo
-            </a>
-          </button>
-          <button className={`px-8 py-2 mt-4 ${scale110}`}>
-            <a href={githubLink} target='_blank' rel='noopener noreferrer'>
-              Code{' '}
-            </a>
-          </button>
+          <p className='pb-2 pt-10'>{description}</p>
+          <a href={link} target='_blank' rel='noopener noreferrer'>
+            <button className={`px-8 py-2 mt-4 mr-8 ${scale110}`}>Demo</button>
+          </a>
+          <a href={githubLink} target='_blank' rel='noopener noreferrer'>
+            <button className={`px-8 py-2 mt-4 ${scale110}`}>Code</button>
+          </a>
         </div>
 
         <div className='col-span-4 md:col-span-3 lg:col-span-2 shadow-xl shadow-gray-400 rounded-xl p-4'>
