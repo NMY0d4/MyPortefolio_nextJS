@@ -9,7 +9,13 @@ export const socialLinks = [
   <a href='/'>
     <FaLinkedinIn />
   </a>,
-  <a href='/'><FaGithub /></a>,
-  <a href='/'><AiOutlineMail /></a>,
-  <a href='/'><BsFillPersonFill /></a>,
+  <a href='https://github.com/NMY0d4' target='_blank'>
+    <FaGithub />
+  </a>,
+  <a href='/'>
+    <AiOutlineMail />
+  </a>,
+  <a href='/'>
+    <BsFillPersonFill />
+  </a>,
 ];
