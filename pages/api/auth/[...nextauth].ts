@@ -32,7 +32,7 @@ const options: NextAuthOptions = {
           credentials!.password,
           user.password
         );
-
+        
         if (!isPasswordCorrect) {
           throw new Error('invalid credentials');
         }
@@ -45,7 +45,7 @@ const options: NextAuthOptions = {
     }),
   ],
   pages: {
-    signIn: '/login?',
+    signIn: '/login',
   },
   session: {
     strategy: 'jwt',

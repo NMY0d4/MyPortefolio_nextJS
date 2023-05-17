@@ -11,6 +11,7 @@ function LoginForm() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const [formData, setFormData] = useState(initialFormData);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setFormData((prevFormData) => ({
@@ -25,6 +26,7 @@ function LoginForm() {
     try {
       setLoading(true);
       const loginRes = await loginUser({ email, password });
+
       if (loginRes && !loginRes.ok) {
         throw new Error(`Something went wrong: ${loginRes.error || '???'}`);
       } else {
@@ -32,6 +34,10 @@ function LoginForm() {
       }
     } catch (error) {
       console.log(error);
+      setError(error);
+      setTimeout(() => {
+        setError('');
+      }, 3000);
     }
     setLoading(false);
     setFormData(initialFormData);
@@ -81,6 +87,7 @@ function LoginForm() {
             {loading ? 'Processing...' : 'Login'}
           </button>
         </div>
+        <div>{error && error.message}</div>
       </form>
     </section>
   );
