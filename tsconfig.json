@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -17,10 +21,9 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.js",
-    "**/*.tsx",
-    "pages/api/auth/[...nextauth].ts/route.js",
-    "pages/api/auth/[...nextauth].ts"
-  ],
-  "exclude": ["node_modules"]
+    "**/*.tsx"
+, "pages/index.js"  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -6,6 +6,11 @@ import { IUser } from '../../../types';
 import mongoose from 'mongoose';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+
+  if (process.env.NODE_ENV === 'production') {
+    return res.status(403).json({ error: 'Access Forbidden' });
+  }
+
   connectToDatabase();
 
   if (req.method === 'POST') {

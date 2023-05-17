@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { scale110 } from '../ui/utilClasses';
 
-function AuthForm() {
+function LoginForm() {
   const [isLogin, setIsLogin] = useState(true);
 
   function switchAuthModeHandler() {
@@ -10,11 +10,10 @@ function AuthForm() {
 
   return (
     <section className='w-[30%] pt-[10rem] flex flex-col mx-auto'>
-      <h1 className='text-secondary mx-auto pb-4'>
-        {isLogin ? 'Login' : 'Sign Up'}
+      <h1 className='text-secondary mx-auto pb-4 text-center text-3xl'>
+        Welcome Greg you want to manage your site today ?
       </h1>
       <form className='h-[40vh] pt-8 flex flex-col gap-10'>
-      
         <div className='mb-4'>
           <label htmlFor='email' className='text-navLinkColor'>
             Your Email
@@ -44,10 +43,9 @@ function AuthForm() {
             {isLogin ? 'Login' : 'Create Account'}
           </button>
         </div>
-        
       </form>
     </section>
   );
 }
 
-export default AuthForm;
+export default LoginForm;

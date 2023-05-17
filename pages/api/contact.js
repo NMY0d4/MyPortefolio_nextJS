@@ -1,9 +1,9 @@
 import { MongoClient } from 'mongodb';
 require('dotenv').config();
 
-export async function connectDatabase() {
-  return await MongoClient.connect(process.env.MONGO_DB_URL);
-}
+// export async function connectDatabase() {
+//   return await MongoClient.connect(process.env.MONGO_DB_URL);
+// }
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
