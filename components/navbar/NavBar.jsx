@@ -8,12 +8,15 @@ import { v4 as uuidv4 } from 'uuid';
 import { socialIconClasses, socialLinks } from '../ui/socialIcons';
 import { useRouter } from 'next/router';
 import { navLinks } from '../ui/utilClasses';
+import { BsFillPersonCheckFill } from 'react-icons/bs';
+import { useSession } from 'next-auth/react';
 
 function NavBar() {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState('nbgColor');
   const [linkColor, setLinkColor] = useState('navLinkColor');
+  const { data: session } = useSession();  
 
   const router = useRouter();
 
@@ -69,6 +72,11 @@ function NavBar() {
             style={{ color: `${linkColor}` }}
             className={`relative hidden md:flex`}
           >
+            {session && (
+              <li className='b-icon-size'>
+                <BsFillPersonCheckFill />
+              </li>
+            )}
             {navLinks.map(({ to, children }) => (
               <Link key={uuidv4()} href={to}>
                 <li
