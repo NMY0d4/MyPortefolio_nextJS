@@ -38,9 +38,9 @@ function LoginForm() {
   };
 
   return (
-    <section className='w-[30%] pt-[10rem] flex flex-col mx-auto'>
+    <section className='w-[70%] md:w-[50%] lg:w-[40%] xl:w-[30%] pt-[10rem] flex flex-col mx-auto'>
       <h1 className='text-secondary mx-auto pb-4 text-center text-3xl'>
-        Welcome Greg you want to manage your site today ?
+        Welcome Greg, need to manage your site today?
       </h1>
       <form
         className='h-[40vh] pt-8 flex flex-col gap-10'

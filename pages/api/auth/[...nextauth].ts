@@ -37,6 +37,9 @@ const options: NextAuthOptions = {
           throw new Error('invalid credentials');
         }
 
+        user.password = undefined;
+        user.__v = undefined;
+
         return user;
       },
     }),
@@ -54,6 +57,7 @@ const options: NextAuthOptions = {
     },
     session: async ({ session, token }) => {
       const user = token.user as IUser;
+
       session.user = user;
       return session;
     },

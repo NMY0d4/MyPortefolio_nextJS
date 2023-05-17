@@ -1,4 +1,4 @@
-import { useState, useEffect, Fragment } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
@@ -8,16 +8,15 @@ import { v4 as uuidv4 } from 'uuid';
 import { socialIconClasses, socialLinks } from '../ui/socialIcons';
 import { useRouter } from 'next/router';
 import { navLinks } from '../ui/utilClasses';
+import { useSession, signOut } from 'next-auth/react';
 import { BsFillPersonCheckFill } from 'react-icons/bs';
-import { useSession } from 'next-auth/react';
 
 function NavBar() {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState('nbgColor');
   const [linkColor, setLinkColor] = useState('navLinkColor');
-  const { data: session } = useSession();  
-
+  const { data: session } = useSession();
   const router = useRouter();
 
   const { nbgColor, navLinkColor } = theme.theme.extend.colors;
@@ -73,7 +72,7 @@ function NavBar() {
             className={`relative hidden md:flex`}
           >
             {session && (
-              <li className='b-icon-size'>
+              <li onClick={signOut} className='b-icon-size hover:text-primary'>
                 <BsFillPersonCheckFill />
               </li>
             )}
@@ -130,11 +129,22 @@ function NavBar() {
             <ul className='uppercase'>
               {navLinks.map(({ to, children }) => (
                 <Link key={uuidv4()} href={to}>
-                  <li onClick={() => setNav(false)} className='py-4 text-sm'>
+                  <li
+                    onClick={() => setNav(false)}
+                    className='py-4 text-sm hover:text-primary'
+                  >
                     {children}
                   </li>
                 </Link>
               ))}
+              {session && (
+                <li
+                  onClick={signOut}
+                  className='b-icon-size hover:text-primary'
+                >
+                  <BsFillPersonCheckFill />
+                </li>
+              )}
             </ul>
 
             <div className='pt-40'>

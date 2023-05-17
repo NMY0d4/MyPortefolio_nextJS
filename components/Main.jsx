@@ -2,8 +2,11 @@ import React from 'react';
 import { socialIconClasses, socialLinks } from './ui/socialIcons';
 import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 const Main = () => {
+  const { data: session } = useSession();
+
   return (
     <div id='home' className='w-full h-screen text-center'>
       <div className='max-w-contWithXl w-full h-full mx-auto p-2 flex justify-center items-center'>
@@ -14,7 +17,7 @@ const Main = () => {
           <h1 className='py-4 text-gray-700'>
             Hi, I'm{' '}
             <span className='text-primary'>
-              <Link href='/login'>Greg</Link>
+              <Link href={session ? '/' : '/login'}>Greg</Link>
             </span>
           </h1>
           <h1 className='py-2 text-gray-700'>a Full-Stack web developper</h1>
