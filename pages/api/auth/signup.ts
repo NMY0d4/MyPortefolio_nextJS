@@ -34,6 +34,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             const msg = err.errors[field].message;
             return res.status(409).json({ error: msg });
           }
+        } else {
+          return res.status(409).json({error: err.message});
         }
       });
 

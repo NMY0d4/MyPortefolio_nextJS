@@ -1,5 +1,11 @@
 import { Schema, model, models } from 'mongoose';
 
+enum UserRole {
+  User = 'user',
+  Admin = 'admin',
+  Client = 'client',
+}
+
 const UserSchema = new Schema({
   email: {
     type: String,
@@ -17,7 +23,14 @@ const UserSchema = new Schema({
     type: String,
     required: [true, "Password is required"],
     select: false
+  },
+  role: {
+    type: String,
+    enum: Object.values(UserRole),
+    default: UserRole.User,
+    immutable: true, // Makes the property unmodifiable on the client side
   }
+
 });
 
 const User = models.USer || model("User", UserSchema)
