@@ -5,6 +5,7 @@ export interface WindowSize {
 
 export interface IUser {
   _id?: string;
+  role: string;
   email: string;
   fullName: string;
 }

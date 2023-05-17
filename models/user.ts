@@ -21,18 +21,17 @@ const UserSchema = new Schema({
   },
   password: {
     type: String,
-    required: [true, "Password is required"],
-    select: false
+    required: [true, 'Password is required'],
+    select: false,
   },
   role: {
     type: String,
     enum: Object.values(UserRole),
     default: UserRole.User,
     immutable: true, // Makes the property unmodifiable on the client side
-  }
-
+  },
 });
 
-const User = models.USer || model("User", UserSchema)
+const User = models.User || model('User', UserSchema);
 
 export default User;

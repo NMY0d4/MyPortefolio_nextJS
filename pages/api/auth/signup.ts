@@ -6,10 +6,12 @@ import { IUser } from '../../../types';
 import mongoose from 'mongoose';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  connectToDatabase().catch((err) => res.json(err));
+  connectToDatabase();
 
   if (req.method === 'POST') {
-    if (!req.body) return res.status(400).json({ error: 'Data is missing' });
+    if (!req.body || Object.keys(req.body).length === 0)
+      return res.status(400).json({ error: 'Data is missing' });
+
     const { fullName, email, password } = req.body;
 
     const userExists = await User.findOne({ email });
@@ -35,7 +37,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             return res.status(409).json({ error: msg });
           }
         } else {
-          return res.status(409).json({error: err.message});
+          return res.status(409).json({ error: err.message });
         }
       });
 
@@ -43,6 +45,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         email: data.email,
         fullName: data.fullName,
         _id: data._id,
+        role: data.role,
       };
 
       return res.status(201).json({ success: true, user });
