@@ -3,7 +3,7 @@ import { compare } from 'bcryptjs';
 import NextAuth from 'next-auth/next';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { connectToDatabase } from '../../../lib/db';
-import User from '../../../models/user';
+import User from '../../../models/userSchema';
 import { IUser } from '../../../types';
 
 const options: NextAuthOptions = {
@@ -32,7 +32,7 @@ const options: NextAuthOptions = {
           credentials!.password,
           user.password
         );
-        
+
         if (!isPasswordCorrect) {
           throw new Error('invalid credentials');
         }

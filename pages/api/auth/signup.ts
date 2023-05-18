@@ -1,12 +1,11 @@
 import { hashPassword } from '../../../lib/auth';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { connectToDatabase } from '../../../lib/db';
-import User from '../../../models/user';
+import User from '../../../models/userSchema';
 import { IUser } from '../../../types';
 import mongoose from 'mongoose';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-
   if (process.env.NODE_ENV === 'production') {
     return res.status(403).json({ error: 'Access Forbidden' });
   }
