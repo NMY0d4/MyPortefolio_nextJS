@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import InputField from './InputField';
 import { useRouter } from 'next/router';
-import QuickMsg from '../ui/QuickMsg';
 
 const FormContact = () => {
   const initialState = {
@@ -13,7 +12,6 @@ const FormContact = () => {
   };
   const [formData, setFormData] = useState(initialState);
   const router = useRouter();
-  const [isVisible, setIsVisible] = useState(false);
 
   const handleQuickMsgRemove = () => {
     setIsVisible(false);
@@ -29,7 +27,7 @@ const FormContact = () => {
     // faire quelque chose avec les données du formulaire
     console.log(formData);
     setFormData(initialState);
-    setIsVisible(true);
+   
     // router.push('/');
   };
 
@@ -76,12 +74,7 @@ const FormContact = () => {
         ></textarea>
       </div>
       <button className='w-full p-4 text-gray-100 mt-6'>Send Message</button>
-      <QuickMsg
-        message='Message sent!'
-        handleIsVisible={isVisible}
-        duration={3000}
-        onRemove={handleQuickMsgRemove}
-      />
+      
     </form>
   );
 };

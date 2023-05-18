@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 import { navLinks } from '../ui/utilClasses';
 import { useSession, signOut } from 'next-auth/react';
 import { BsFillPersonCheckFill } from 'react-icons/bs';
+import Notification from '../ui/Notification';
 
 function NavBar() {
   const [nav, setNav] = useState(false);
@@ -95,6 +96,7 @@ function NavBar() {
           </div>
         </div>
       </div>
+      <Notification title='Test' message='This is a test.' status='success' />
 
       {/* Menu gauche petit écran */}
       <div
