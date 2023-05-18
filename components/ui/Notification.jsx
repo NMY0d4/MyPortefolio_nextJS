@@ -31,6 +31,18 @@ function Notification(props) {
   };
 
   useEffect(() => {
+    if (notificationCtx.notification) {
+      const timer = setTimeout(() => {
+        setExitAnimation('animate-slide-left'); // Appliquer la classe d'animation de sortie lorsque la durée du contexte est écoulée
+      }, 2600);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [notificationCtx.notification]);
+
+  useEffect(() => {
     if (exitAnimation) {
       const timeout = setTimeout(() => {
         notificationCtx.hideNotification();
