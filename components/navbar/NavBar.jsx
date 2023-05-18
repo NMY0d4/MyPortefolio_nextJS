@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
@@ -11,6 +11,7 @@ import { navLinks } from '../ui/utilClasses';
 import { useSession, signOut } from 'next-auth/react';
 import { BsFillPersonCheckFill } from 'react-icons/bs';
 import Notification from '../ui/Notification';
+import NotificationContext from '../../store/notification-context';
 
 function NavBar() {
   const [nav, setNav] = useState(false);
@@ -19,7 +20,9 @@ function NavBar() {
   const [linkColor, setLinkColor] = useState('navLinkColor');
   const { data: session } = useSession();
   const router = useRouter();
+  const notificationCtx = useContext(NotificationContext);
 
+  const activeNotification = notificationCtx.notification;
   const { nbgColor, navLinkColor } = theme.theme.extend.colors;
 
   const handleNav = () => {
@@ -96,7 +99,13 @@ function NavBar() {
           </div>
         </div>
       </div>
-      <Notification title='Test' message='This is a test.' status='success' />
+      {activeNotification && (
+        <Notification
+          title={activeNotification.title}
+          message={activeNotification.message}
+          status={activeNotification.status}
+        />
+      )}
 
       {/* Menu gauche petit écran */}
       <div

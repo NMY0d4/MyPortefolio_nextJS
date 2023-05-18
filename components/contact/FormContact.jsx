@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import InputField from './InputField';
 import { useRouter } from 'next/router';
+import NotificationContext from '../../store/notification-context';
 
 const FormContact = () => {
   const initialState = {
@@ -12,10 +13,7 @@ const FormContact = () => {
   };
   const [formData, setFormData] = useState(initialState);
   const router = useRouter();
-
-  const handleQuickMsgRemove = () => {
-    setIsVisible(false);
-  };
+  const notificationCtx = useContext(NotificationContext);
 
   const handleForm = (e) => {
     const { name, value } = e.target;
@@ -27,8 +25,13 @@ const FormContact = () => {
     // faire quelque chose avec les données du formulaire
     console.log(formData);
     setFormData(initialState);
-   
-    // router.push('/');
+    notificationCtx.showNotification({
+      title: 'Error 💥',
+      message: 'Something went wrong',
+      status: 'error',
+    });
+
+    router.push('/');
   };
 
   return (
@@ -74,7 +77,6 @@ const FormContact = () => {
         ></textarea>
       </div>
       <button className='w-full p-4 text-gray-100 mt-6'>Send Message</button>
-      
     </form>
   );
 };
