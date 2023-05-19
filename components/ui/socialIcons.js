@@ -12,10 +12,10 @@ export const socialLinks = [
   <a href='https://github.com/NMY0d4' target='_blank'>
     <FaGithub />
   </a>,
-  <a href='/'>
+  <a href='mailto:greg.marini@hotmail.fr'>
     <AiOutlineMail />
   </a>,
-  <a href='/'>
+  <a href='/#about'>
     <BsFillPersonFill />
   </a>,
 ];

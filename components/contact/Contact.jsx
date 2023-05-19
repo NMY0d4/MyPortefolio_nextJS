@@ -42,7 +42,7 @@ function Contact() {
                   {socialLinks.map((icon) => (
                     <div
                       key={uuidv4()}
-                      className={`${socialIconClasses} p-4 m-icon-size`}
+                      className={`${socialIconClasses} p-2 b-icon-size`}
                     >
                       {icon}
                     </div>
