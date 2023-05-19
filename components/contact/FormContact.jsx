@@ -22,8 +22,7 @@ const FormContact = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(formData);
+    e.preventDefault();    
 
     try {
       const res = await fetch('/api/contact', {
@@ -34,8 +33,7 @@ const FormContact = () => {
         },
       });
       const data = await res.json();
-
-      console.log(data.message);
+      
       const errors = {};
 
       if (res.ok) {
