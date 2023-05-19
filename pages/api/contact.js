@@ -1,46 +1,43 @@
-import { MongoClient } from 'mongodb';
 require('dotenv').config();
 
-// export async function connectDatabase() {
-//   return await MongoClient.connect(process.env.MONGO_DB_URL);
-// }
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { email, name, message } = req.body;
+      await connectToDatabase();
+      console.log(req.body);
 
-      if (
-        !email ||
-        !email.includes('@') ||
-        !email.includes('.') ||
-        !name ||
-        name.trim() === '' ||
-        !message ||
-        message.trim() === ''
-      ) {
-        res.status(422).json({ message: 'Invalid input.' });
-        return;
-      }
+      // if (
+      //   !email ||
+      //   !email.includes('@') ||
+      //   !email.includes('.') ||
+      //   !name ||
+      //   name.trim() === '' ||
+      //   !message ||
+      //   message.trim() === ''
+      // ) {
+      //   res.status(422).json({ message: 'Invalid input.' });
+      //   return;
+      // }
 
       // Store it in a database
-      const newMessage = {
-        email,
-        name,
-        message,
-      };
+      // const newMessage = {
+      //   email,
+      //   name,
+      //   message,
+      // };
 
-      let client;
+      // let client;
 
-      client = await connectDatabase();
+      // client = await connectDatabase();
 
-      const db = client.db();
+      // const db = client.db();
 
-      const result = await db.collection('messages').insertOne(newMessage);
+      // const result = await db.collection('messages').insertOne(newMessage);
 
-      client.close();
+      // client.close();
 
-      console.log(result);
+      // console.log(result);
 
       res
         .status(201)

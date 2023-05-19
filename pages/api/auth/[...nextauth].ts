@@ -2,7 +2,7 @@ import { NextAuthOptions } from 'next-auth';
 import { compare } from 'bcryptjs';
 import NextAuth from 'next-auth/next';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { connectToDatabase } from '../../../lib/db';
+import { connectToDatabase, disconnectFromDatabase } from '../../../lib/db';
 import User from '../../../models/userSchema';
 import { IUser } from '../../../types';
 
@@ -16,31 +16,37 @@ const options: NextAuthOptions = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        await connectToDatabase().catch((err) => {
-          throw new Error(err);
-        });
+        try {
+          await connectToDatabase();
 
-        const user = await User.findOne({
-          email: credentials?.email,
-        }).select('+password');
+          const user = await User.findOne({
+            email: credentials?.email,
+          }).select('+password');
 
-        if (!user) {
-          throw new Error('Invalid credentials');
+          if (!user) {
+            throw new Error('Invalid credentials');
+          }
+
+          const isPasswordCorrect = await compare(
+            credentials!.password,
+            user.password
+          );
+
+          if (!isPasswordCorrect) {
+            throw new Error('Invalid credentials');
+          }
+
+          user.password = undefined;
+          user.__v = undefined;
+
+          return user;
+        } catch (error) {
+          const errorMessage =
+            typeof error === 'string' ? error : String(error);
+          throw new Error(errorMessage);
+        } finally {
+          await disconnectFromDatabase();
         }
-
-        const isPasswordCorrect = await compare(
-          credentials!.password,
-          user.password
-        );
-
-        if (!isPasswordCorrect) {
-          throw new Error('invalid credentials');
-        }
-
-        user.password = undefined;
-        user.__v = undefined;
-
-        return user;
       },
     }),
   ],

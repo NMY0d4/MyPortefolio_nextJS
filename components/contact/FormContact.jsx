@@ -20,10 +20,10 @@ const FormContact = () => {
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // faire quelque chose avec les données du formulaire
+  const handleSubmit = async (e) => {
+    e.preventDefault();    
     console.log(formData);
+    const res = await fetch('api/contact', {})
     setFormData(initialState);
     notificationCtx.showNotification({
       title: 'Error 💥',
