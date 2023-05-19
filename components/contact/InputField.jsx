@@ -11,7 +11,9 @@ const InputField = ({ label, type, name, value, onChange, error }) => {
         value={value}
         onChange={onChange}
       />
-      {error && <p className='text-red-500 text-sm mt-1'>{error}</p>}
+      {error && (
+        <p className='text-red-500 text-sm mt-1 font-semibold'>{error}</p>
+      )}
     </div>
   );
 };

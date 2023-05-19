@@ -72,9 +72,9 @@ html {
 }
 
 .animate-slide-right {
-  animation: slideRight 0.3s ease-in-out;
+  animation: slideRight 0.35s ease-in-out;
 }
 
 .animate-slide-left {
-  animation: slideLeft 0.3s ease-in-out;
+  animation: slideLeft 0.35s ease-in-out;
 }

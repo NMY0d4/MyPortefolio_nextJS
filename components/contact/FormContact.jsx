@@ -55,6 +55,8 @@ const FormContact = () => {
           }
         }
         setFormErrors(errors);
+        if (data.message.startsWith('E11000'))
+          data.message = 'Only one message allowed per email';
         throw new Error(data.message);
       }
     } catch (error) {
@@ -112,7 +114,7 @@ const FormContact = () => {
           onChange={handleForm}
         ></textarea>
         {formErrors.message && (
-          <p className='text-red-500 text-sm mt-1'>{formErrors.message}</p>
+          <p className='text-red-500 text-sm mt-1 font-semibold'>{formErrors.message}</p>
         )}
       </div>
       <button className='w-full p-4 text-gray-100 mt-6'>Send Message</button>
