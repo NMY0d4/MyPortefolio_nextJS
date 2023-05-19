@@ -1,6 +1,6 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, models } from 'mongoose';
 
-const ContactSchema = new Schema({
+const MessageSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -39,6 +39,6 @@ const ContactSchema = new Schema({
   },
 });
 
-const Contact = model('Contact', ContactSchema);
+const Message = models.Message || model('Message', MessageSchema);
 
-export default Contact;
+export default Message;

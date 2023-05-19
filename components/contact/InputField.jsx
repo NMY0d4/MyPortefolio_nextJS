@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputField = ({ label, type, name, value, onChange }) => {
+const InputField = ({ label, type, name, value, onChange, error }) => {
   return (
     <div className='flex flex-col py-2'>
       <label className='uppercase text-sm py-2'>{label}</label>
@@ -11,6 +11,7 @@ const InputField = ({ label, type, name, value, onChange }) => {
         value={value}
         onChange={onChange}
       />
+      {error && <p className='text-red-500 text-sm mt-1'>{error}</p>}
     </div>
   );
 };

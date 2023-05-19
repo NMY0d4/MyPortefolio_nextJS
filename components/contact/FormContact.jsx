@@ -12,6 +12,7 @@ const FormContact = () => {
     message: '',
   };
   const [formData, setFormData] = useState(initialState);
+  const [formErrors, setFormErrors] = useState({});
   const router = useRouter();
   const notificationCtx = useContext(NotificationContext);
 
@@ -21,17 +22,48 @@ const FormContact = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();    
+    e.preventDefault();
     console.log(formData);
-    const res = await fetch('api/contact', {})
-    setFormData(initialState);
-    notificationCtx.showNotification({
-      title: 'Error 💥',
-      message: 'Something went wrong',
-      status: 'error',
-    });
 
-    router.push('/');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await res.json();
+
+      console.log(data.message);
+      const errors = {};
+
+      if (res.ok) {
+        // Le message a été envoyé avec succès
+        notificationCtx.showNotification({
+          title: 'Success',
+          message: 'Message sent successfully!',
+          status: 'success',
+        });
+        setFormData(initialState);
+        setFormErrors({});
+        router.push('/');
+      } else {
+        for (const key in data.errors) {
+          if (Object.prototype.hasOwnProperty.call(data.errors, key)) {
+            errors[key] = data.errors[key].message;
+          }
+        }
+        setFormErrors(errors);
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      notificationCtx.showNotification({
+        title: 'Error',
+        message: error.message,
+        status: 'error',
+      });
+    }
   };
 
   return (
@@ -43,6 +75,7 @@ const FormContact = () => {
           name='name'
           value={formData.name}
           onChange={handleForm}
+          error={formErrors.name}
         />
         <InputField
           label='Phone Number'
@@ -50,6 +83,7 @@ const FormContact = () => {
           name='phoneNumber'
           value={formData.phoneNumber}
           onChange={handleForm}
+          error={formErrors.phoneNumber}
         />
       </div>
       <InputField
@@ -58,6 +92,7 @@ const FormContact = () => {
         name='email'
         value={formData.email}
         onChange={handleForm}
+        error={formErrors.email}
       />
       <InputField
         label='Subject'
@@ -65,6 +100,7 @@ const FormContact = () => {
         name='subject'
         value={formData.subject}
         onChange={handleForm}
+        error={formErrors.subject}
       />
       <div className='flex flex-col py-2'>
         <label className='uppercase text-sm py-2'>Message</label>
@@ -75,6 +111,9 @@ const FormContact = () => {
           value={formData.message}
           onChange={handleForm}
         ></textarea>
+        {formErrors.message && (
+          <p className='text-red-500 text-sm mt-1'>{formErrors.message}</p>
+        )}
       </div>
       <button className='w-full p-4 text-gray-100 mt-6'>Send Message</button>
     </form>
