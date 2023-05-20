@@ -13,7 +13,7 @@ const FormContact = () => {
   };
   const [formData, setFormData] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
-  const [isDisabled, setIsDisabled] = useState(true);
+  const [isDisabled, setIsDisabled] = useState(false);
   const router = useRouter();
   const notificationCtx = useContext(NotificationContext);
 
@@ -24,6 +24,7 @@ const FormContact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsDisabled(true);
 
     try {
       const res = await fetch('/api/contact', {
@@ -45,6 +46,7 @@ const FormContact = () => {
         });
         setFormData(initialState);
         setFormErrors({});
+        setIsDisabled(false);
         router.push('/');
       } else {
         for (const key in data.errors) {
@@ -54,7 +56,7 @@ const FormContact = () => {
         }
         setFormErrors(errors);
         if (data.message.startsWith('E11000'))
-          data.message = 'Only one message allowed per email';
+          data.message = '==> Only one message allowed per email';
         throw new Error(data.message);
       }
     } catch (error) {
@@ -117,9 +119,13 @@ const FormContact = () => {
           </p>
         )}
       </div>
+      <p className='text-lg font-bold text-secondary text-center pt-2'>
+        Only one message allowed per email address
+      </p>
       <button disabled={isDisabled} className='w-full p-4 text-gray-100 mt-6'>
-        Send Message
+        {isDisabled ? 'Processing...' : 'Send Message'}
       </button>
+      
     </form>
   );
 };
