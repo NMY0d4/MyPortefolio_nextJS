@@ -3,7 +3,6 @@ import Project from '../../components/project';
 import { PROJECTS } from '../../data/projectData';
 
 function Projects({ projects }) {
-  
   return (
     <Fragment>
       <Project projects={projects} />
@@ -18,5 +17,6 @@ export async function getStaticProps() {
     props: {
       projects: PROJECTS,
     },
+    revalidate: 3600,
   };
 }

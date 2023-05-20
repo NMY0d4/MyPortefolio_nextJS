@@ -4,14 +4,24 @@ import Main from '../components/Main';
 import About from '../components/About';
 import Skills from '../components/Skills';
 import Contact from '../components/contact/Contact';
+import { SKILLS } from '../data/skillsData';
 
-export default function Home() {
+export default function Home({skills}) {
   return (
     <div>
       <Main />
       <About />
-      <Skills />
+      <Skills skills={skills} />
       <Contact />
     </div>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      skills: SKILLS,
+    },
+    revalidate: 3600,
+  };
 }
