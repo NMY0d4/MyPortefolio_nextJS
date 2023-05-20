@@ -8,7 +8,7 @@ import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
 import FormContact from './FormContact';
 
 function Contact() {
-  return (
+    return (
     <div id='contact' className='w-full lg:h-screen'>
       <div className='max-w-contWithXl m-auto px-2 py-16 w-full'>
         <p className='text-xl tracking-widest uppercase text-primary'>
