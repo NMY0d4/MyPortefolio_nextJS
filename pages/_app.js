@@ -19,7 +19,8 @@ function MyApp({ Component, pageProps }) {
             />
           </Head>
           <NavBar />
-                    <Component {...pageProps} />
+
+          <Component {...pageProps} />
         </Fragment>
       </NotificationContextProvider>
     </SessionProvider>

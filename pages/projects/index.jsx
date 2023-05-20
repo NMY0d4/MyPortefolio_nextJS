@@ -3,7 +3,7 @@ import Project from '../../components/project';
 import { PROJECTS } from '../../data/projectData';
 
 function Projects({ projects }) {
-  console.log(projects);
+  
   return (
     <Fragment>
       <Project projects={projects} />

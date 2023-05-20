@@ -13,6 +13,7 @@ const FormContact = () => {
   };
   const [formData, setFormData] = useState(initialState);
   const [formErrors, setFormErrors] = useState({});
+  const [isDisabled, setIsDisabled] = useState(true);
   const router = useRouter();
   const notificationCtx = useContext(NotificationContext);
 
@@ -22,7 +23,7 @@ const FormContact = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();    
+    e.preventDefault();
 
     try {
       const res = await fetch('/api/contact', {
@@ -33,11 +34,10 @@ const FormContact = () => {
         },
       });
       const data = await res.json();
-      
+
       const errors = {};
 
       if (res.ok) {
-        // Le message a été envoyé avec succès
         notificationCtx.showNotification({
           title: 'Success',
           message: 'Message sent successfully!',
@@ -112,10 +112,14 @@ const FormContact = () => {
           onChange={handleForm}
         ></textarea>
         {formErrors.message && (
-          <p className='text-red-500 text-sm mt-1 font-semibold'>{formErrors.message}</p>
+          <p className='text-red-500 text-sm mt-1 font-semibold'>
+            {formErrors.message}
+          </p>
         )}
       </div>
-      <button className='w-full p-4 text-gray-100 mt-6'>Send Message</button>
+      <button disabled={isDisabled} className='w-full p-4 text-gray-100 mt-6'>
+        Send Message
+      </button>
     </form>
   );
 };
