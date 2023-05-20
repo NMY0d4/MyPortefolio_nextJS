@@ -1,12 +1,22 @@
 import React, { Fragment } from 'react';
 import Project from '../../components/project';
+import { PROJECTS } from '../../data/projectData';
 
-function Projects() {
+function Projects({ projects }) {
+  console.log(projects);
   return (
     <Fragment>
-      <Project />
+      <Project projects={projects} />
     </Fragment>
   );
 }
 
 export default Projects;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      projects: PROJECTS,
+    },
+  };
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { RiRadioButtonFill } from 'react-icons/ri';
 import { useRouter } from 'next/router';
-import { PROJECTS } from '../../projectData';
+import { PROJECTS } from '../../data/projectData';
 import { absoCenter, scale110 } from '../../components/ui/utilClasses';
 import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
