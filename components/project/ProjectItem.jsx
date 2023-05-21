@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { absoCenter, scale110 } from '../ui/utilClasses';
 
 const ProjectItem = ({ project }) => {
-  const { title, backgroundImg, projectUrl } = project;
+  const { title, technology, backgroundImg, id } = project;
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -35,8 +35,8 @@ const ProjectItem = ({ project }) => {
         }`}
       >
         <h3 className='text-2xl text-white tracking-wider'>{title}</h3>
-        <p className='pb-4 pt-2 text-white'>NodeJS project</p>
-        <Link href={projectUrl}>
+        <p className='pb-4 pt-2 text-white'>{technology} project</p>
+        <Link href={`/projects/${id}`}>
           <p
             className={`py-3 rounded-lg bg-white text-gray-700 font-bold text-lg cursor-pointer ${scale110}`}
           >

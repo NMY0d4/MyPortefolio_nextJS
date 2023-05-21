@@ -8,6 +8,8 @@ import nextJsImg from '../public/assets/skills/nextjs.png';
 import nodeJsImg from '../public/assets/skills/node.png';
 import gitHubJsImg from '../public/assets/skills/github1.png';
 import dockerImg from '../public/assets/skills/docker.png';
+import typescriptImg from '../public/assets/skills/typescript.png';
+import bootstrapImg from '../public/assets/skills/bootstrap.png';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -22,5 +24,6 @@ export const SKILLS = [
   { id: uuidv4(), title: 'Node.js', img: nodeJsImg },
   { id: uuidv4(), title: 'GitHub', img: gitHubJsImg },
   { id: uuidv4(), title: 'Docker', img: dockerImg },
-
+  { id: uuidv4(), title: 'Typescript', img: typescriptImg },
+  { id: uuidv4(), title: 'Bootstrap', img: bootstrapImg },
 ];

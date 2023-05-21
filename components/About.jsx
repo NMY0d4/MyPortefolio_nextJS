@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import aboutImg from '../public/assets/about.jpg';
+import Link from 'next/link';
 
 const About = () => {
   return (
@@ -13,7 +14,7 @@ const About = () => {
           <h2 className='py-4'>Who I Am</h2>
           <p className='py-2 text-gray-600'>I am not your normal developer</p>
           <p className='py-2 text-gray-600'>
-            Hello everyone, indeed my course is specific since I learn web
+            Hello everyone, indeed my background is specific since I learn web
             development by passion, I was always attracted by computers and
             programming, I had my first computer (amstrad CPC) at 13 years and I
             started to program in basics with magazines. I wanted to follow a
@@ -40,9 +41,11 @@ const About = () => {
             would really like to invest myself in a professional environment and
             be a strong and performing element for you.
           </p>
-          <p className='py-2 text-gray-600 underline cursor-auto'>
-            Check out some of my latest project.
-          </p>
+          <Link href='/projects'>
+            <p className='py-2 text-gray-600 underline cursor-auto hover:cursor-pointer hover:text-secondary'>
+              Check out some of my latest project.
+            </p>
+          </Link>
         </div>
         <div className='w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4 hover:scale-105 ease-in duration-300'>
           <Image

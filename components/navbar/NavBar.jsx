@@ -30,7 +30,7 @@ function NavBar() {
   };
 
   useEffect(() => {
-    if (router.asPath === '/projects/natours') {
+    if (router.asPath.startsWith('/projects/')) {
       setNavBg('transparent');
       setLinkColor(nbgColor);
     } else {

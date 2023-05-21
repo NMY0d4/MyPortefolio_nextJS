@@ -5,15 +5,12 @@ import rsGarageImg from '../public/assets/projects/hero_rs.jpg';
 import nasaProjectImg from '../public/assets/projects/nasaProject.jpg';
 import reactEcomProjectImg from '../public/assets/projects/reactEcom.jpg';
 
-
-
-import { v4 as uuidv4 } from 'uuid';
-
 export const PROJECTS = [
   {
-    id: uuidv4(),
+    id: 'ebc4d1fe',
     title: 'RS garage',
     backgroundImg: rsGarageImg,
+    technology: 'sympfony',
     projectUrl: '/projects/rsGarage',
     link: 'https://www.retsgarage.fr/',
     githubLink: 'https://github.com/NMY0d4/MarvelQuizzForReactTraining',
@@ -34,8 +31,9 @@ export const PROJECTS = [
     ],
   },
   {
-    id: uuidv4(),
+    id: '9a8fa37b',
     title: 'Forkify',
+    technology: 'vanilla Javascript',
     backgroundImg: forkifyImg,
     projectUrl: '/projects/forkify',
     link: 'https://forkify-gmweb.netlify.app/',
@@ -57,9 +55,10 @@ export const PROJECTS = [
     ],
   },
   {
-    id: uuidv4(),
+    id: '4a1a660b',
     title: 'Natours',
     backgroundImg: natoursImg,
+    technology: 'NodeJS',
     projectUrl: '/projects/natours',
     link: 'https://gmweb-natours-trainproject.herokuapp.com/',
     githubLink:
@@ -81,9 +80,10 @@ export const PROJECTS = [
     ],
   },
   {
-    id: uuidv4(),
+    id: 'ecd8450c',
     title: 'Nasa-Project',
     backgroundImg: nasaProjectImg,
+    technology: 'NodeJS',
     projectUrl: '/projects/nasa',
     link: 'http://15.236.209.145:8000/',
     githubLink: 'https://github.com/NMY0d4/nasa-project',
@@ -106,9 +106,10 @@ export const PROJECTS = [
     ],
   },
   {
-    id: uuidv4(),
+    id: '57b43878',
     title: 'Marvel-Quizz',
     backgroundImg: marvelImg,
+    technology: 'React',
     projectUrl: '/projects/marvel',
     link: 'https://marvel-quizz-react-training.web.app/',
     githubLink: 'https://github.com/NMY0d4/MarvelQuizzForReactTraining',
@@ -129,9 +130,10 @@ export const PROJECTS = [
     ],
   },
   {
-    id: uuidv4(),
+    id: 'c6d986a2',
     title: 'reactEcommerce',
     backgroundImg: reactEcomProjectImg,
+    technology: 'React',
     projectUrl: '/projects/reactEcom',
     link: 'https://gmweb-myfirst-ecommerce-reactapp.netlify.app/',
     githubLink: 'https://github.com/NMY0d4/FirstEcommerceWithReact',
@@ -146,7 +148,7 @@ export const PROJECTS = [
       'React Design Patterns',
       'Persistance + Session Storage',
       'State Normalization',
-      'working with Axios'
+      'working with Axios',
     ],
   },
 ];

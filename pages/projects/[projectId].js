@@ -2,16 +2,15 @@ import React from 'react';
 import Image from 'next/image';
 import { RiRadioButtonFill } from 'react-icons/ri';
 import { useRouter } from 'next/router';
-import { PROJECTS } from '../../data/projectData';
 import { absoCenter, scale110 } from '../../components/ui/utilClasses';
 import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
+import { PROJECTS } from '../../data/projectData';
 
-const ProjectDetail = () => {
+const ProjectDetail = ({ project }) => {
   const router = useRouter();
-  const { projectId } = router.query;
   const { title, backgroundImg, description, technologies, link, githubLink } =
-    PROJECTS[0];
+    project;
 
   return (
     <div className='w-full'>
@@ -70,5 +69,27 @@ const ProjectDetail = () => {
     </div>
   );
 };
+
+export function getStaticProps(context) {
+  const { params } = context;
+  const { projectId } = params;
+  const project = PROJECTS.find((project) => project.id === projectId);
+
+  return {
+    props: {
+      project,
+    },
+  };
+}
+
+export function getStaticPaths() {
+  const ids = PROJECTS.map((product) => product.id);
+  const pathsWithParams = ids.map((id) => ({ params: { projectId: id } }));  
+
+  return {
+    paths: pathsWithParams,
+    fallback: 'blocking',
+  };
+}
 
 export default ProjectDetail;
