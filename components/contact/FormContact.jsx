@@ -55,6 +55,7 @@ const FormContact = () => {
           }
         }
         setFormErrors(errors);
+        setIsDisabled(false);
         if (data.message.startsWith('E11000'))
           data.message = '==> Only one message allowed per email';
         throw new Error(data.message);
@@ -125,7 +126,6 @@ const FormContact = () => {
       <button disabled={isDisabled} className='w-full p-4 text-gray-100 mt-6'>
         {isDisabled ? 'Processing...' : 'Send Message'}
       </button>
-      
     </form>
   );
 };
