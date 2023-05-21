@@ -13,19 +13,32 @@ const About = () => {
           <h2 className='py-4'>Who I Am</h2>
           <p className='py-2 text-gray-600'>I am not your normal developer</p>
           <p className='py-2 text-gray-600'>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit
-            ratione ipsam necessitatibus facilis nostrum veritatis deleniti
-            eaque quae enim rerum officiis minus cum iste saepe eum fugit, harum
-            quo aspernatur. Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit. Assumenda, quo doloremque, tempora et repudiandae similique
-            corrupti quisquam eos voluptate nihil
+            Hello everyone, indeed my course is specific since I learn web
+            development by passion, I was always attracted by computers and
+            programming, I had my first computer (amstrad CPC) at 13 years and I
+            started to program in basics with magazines. I wanted to follow a
+            school course in this field but in France at that time (yes yes I
+            know, I'm 48 years old) there was no curriculum (what I was told
+            when I inquired to orient myself), so my course was different (I
+            joined the army).
           </p>
           <p className='py-2 text-gray-600'>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus
-            maiores culpa a laborum vitae dolores architecto ea sint eos, harum
-            aliquam. Vitae quo repellendus corporis sed magni saepe laudantium
-            eius. architecto qui tempore dicta alias porro? Consequuntur
-            temporibus esse architecto.
+            I have always kept a contact with computer science, and after a
+            health problem (rupture of the cruciate ligament) in 2020, during my
+            convalescence period I started coding via courses on the internet
+            first on gamecodeur.fr (2020) or I initiated myself via the creation
+            of video games in lua/love2d (I also touched C#/monogame) and I
+            found my passion. Then I asked about courses to reorient myself, I
+            turned to Web development where I could see that there were career
+            opportunities, I validated a first training bac +2 at ESCCI Evreux
+            and I specialize since on Javascrip and NextJS with which I take a
+            lot of pleasure to code.
+          </p>
+          <p className='py-2 text-gray-600'>
+            Since 2020 I've been coding every day, I've learned a lot but I've
+            also understood a lot of things and I'm still moving forward but I
+            would really like to invest myself in a professional environment and
+            be a strong and performing element for you.
           </p>
           <p className='py-2 text-gray-600 underline cursor-auto'>
             Check out some of my latest project.
