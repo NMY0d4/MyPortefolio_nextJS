@@ -4,6 +4,8 @@ import aboutImg from '../public/assets/about.jpg';
 import Link from 'next/link';
 
 const About = () => {
+  const dateOfBirth = new Date('1975-07-22'); // Date de naissance au format 'AAAA-MM-JJ'
+  const age = Math.floor((Date.now() - dateOfBirth) / (365.25 * 24 * 60 * 60 * 1000));
   return (
     <div id='about' className='w-fulll md:h-screen p-2 flex items-center py-16'>
       <div className='max-w-[1240px] m-auto md:grid grid-cols-3 gap-8'>
@@ -19,7 +21,7 @@ const About = () => {
             programming, I had my first computer (amstrad CPC) at 13 years and I
             started to program in basics with magazines. I wanted to follow a
             school course in this field but in France at that time (yes yes I
-            know, I'm 48 years old) there was no curriculum (what I was told
+            know, I'm {age} years old) there was no curriculum (what I was told
             when I inquired to orient myself), so my course was different (I
             joined the army).
           </p>

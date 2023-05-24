@@ -15,7 +15,7 @@ const Main = () => {
             Available and very motivated to build projects
           </p>
           <h1 className='py-4 text-gray-700'>
-            Hi, I'm{' '}
+            Hi, I'm
             <span className='text-primary'>
               <Link href={session ? '/' : '/login'}>Greg</Link>
             </span>

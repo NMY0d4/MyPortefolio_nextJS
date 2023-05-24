@@ -74,6 +74,7 @@ export function getStaticProps(context) {
   const { params } = context;
   const { projectId } = params;
   const project = PROJECTS.find((project) => project.id === projectId);
+  if (!project) return { notFound: true };
 
   return {
     props: {
@@ -84,7 +85,7 @@ export function getStaticProps(context) {
 
 export function getStaticPaths() {
   const ids = PROJECTS.map((product) => product.id);
-  const pathsWithParams = ids.map((id) => ({ params: { projectId: id } }));  
+  const pathsWithParams = ids.map((id) => ({ params: { projectId: id } }));
 
   return {
     paths: pathsWithParams,
