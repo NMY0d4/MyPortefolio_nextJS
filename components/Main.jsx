@@ -17,7 +17,7 @@ const Main = () => {
           <h1 className='py-4 text-gray-700'>
             Hi, I'm
             <span className='text-primary'>
-              <Link href={session ? '/' : '/login'}>Greg</Link>
+              <Link href={session ? '/' : '/login'}> Greg</Link>
             </span>
           </h1>
           <h1 className='py-2 text-gray-700'>a Full-Stack web developper</h1>
