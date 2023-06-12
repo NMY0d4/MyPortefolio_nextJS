@@ -18,6 +18,7 @@ function NavBar() {
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState('nbgColor');
   const [linkColor, setLinkColor] = useState('navLinkColor');
+  const [positionRelative, setPositionRelative] = useState(false);
   const { data: session } = useSession();
   const router = useRouter();
   const notificationCtx = useContext(NotificationContext);
@@ -33,7 +34,9 @@ function NavBar() {
     if (router.asPath.startsWith('/projects/')) {
       setNavBg('transparent');
       setLinkColor(nbgColor);
+      setPositionRelative(true);
     } else {
+      setPositionRelative(false);
       setNavBg('nbgColor');
       setLinkColor(navLinkColor);
     }
@@ -64,7 +67,9 @@ function NavBar() {
 
   return (
     <div
-      className={`fixed w-full h-20 bg-${navBg} ${
+      className={`${
+        positionRelative ? 'relative' : 'fixed'
+      } w-full h-20 bg-${navBg} ${
         shadow ? 'shadow-xl' : ''
       } z-[100] ease-in-out duration-300`}
     >

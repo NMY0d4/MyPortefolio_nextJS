@@ -7,7 +7,7 @@ const About = () => {
   const dateOfBirth = new Date('1975-07-22'); // Date de naissance au format 'AAAA-MM-JJ'
   const age = Math.floor((Date.now() - dateOfBirth) / (365.25 * 24 * 60 * 60 * 1000));
   return (
-    <div id='about' className='w-fulll md:h-screen p-2 flex items-center py-16'>
+    <div id='about' className='w-full p-2 flex items-center py-16'>
       <div className='max-w-[1240px] m-auto md:grid grid-cols-3 gap-8'>
         <div className='col-span-2'>
           <p className='uppercase text-xl tracking-widest text-primary'>

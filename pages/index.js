@@ -6,9 +6,9 @@ import Skills from '../components/Skills';
 import Contact from '../components/contact/Contact';
 import { SKILLS } from '../data/skillsData';
 
-export default function Home({skills}) {
+export default function Home({ skills }) {
   return (
-    <div>
+    <div className='flex flex-col gap-1'>
       <Main />
       <About />
       <Skills skills={skills} />
