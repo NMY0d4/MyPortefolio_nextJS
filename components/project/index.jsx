@@ -1,5 +1,6 @@
 import React from 'react';
 import ProjectItem from './ProjectItem';
+import { RevealWrapper } from 'next-reveal';
 
 const Project = ({ projects }) => {
   return (
@@ -10,8 +11,10 @@ const Project = ({ projects }) => {
         </p>
         <h2 className='py-4'>what I've Built</h2>
         <div className='grid md:grid-cols-2 gap-8'>
-        {projects.map((project) => (
-          <ProjectItem key={project.id} project={project} />
+        {projects.map((project, i) => (
+          <RevealWrapper delay={i*1500} key={project.id}>
+          <ProjectItem  project={project} />
+          </RevealWrapper>
 
         ))}
         </div>
