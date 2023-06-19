@@ -1,5 +1,6 @@
 import React from 'react';
 import { socialIconClasses, socialLinks } from './ui/socialIcons';
+import { MdOutlineDoubleArrow } from 'react-icons/md';
 import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
@@ -26,6 +27,11 @@ const Main = () => {
             building various projects to improve my skills and understand the
             different aspects of full-js programming. I'm passionate about
             development, I can adapt quickly and easily reach the set goals.
+            <br />
+            <span className='font-medium mt-4 flex justify-center items-center gap-2'>
+              <MdOutlineDoubleArrow size={30} color='#5651e5' />
+              Just tell me what you want to build, and I'll build it.
+            </span>
           </p>
           <div className='flex items-center justify-between max-w-[330px] m-auto py-4'>
             {socialLinks.map((icon) => (
