@@ -4,6 +4,7 @@ import marvelImg from '../public/assets/projects/marvel.jpg';
 import rsGarageImg from '../public/assets/projects/hero_rs.jpg';
 import nasaProjectImg from '../public/assets/projects/nasaProject.jpg';
 import reactEcomProjectImg from '../public/assets/projects/reactEcom.jpg';
+import nextJsEcomProjectImg from '../public/assets/projects/nextJS_Ecomm.jpg';
 
 export const PROJECTS = [
   {
@@ -149,6 +150,28 @@ export const PROJECTS = [
       'Persistance + Session Storage',
       'State Normalization',
       'working with Axios',
+    ],
+  },
+  {
+    id: 'k6f764a8',
+    title: 'NextJS-Ecommerce',
+    backgroundImg: nextJsEcomProjectImg,
+    technology: 'NextJS',
+    projectUrl: '/projects/nextjsEcom',
+    link: 'https://next-js-my-ecomm-front.vercel.app/',
+    githubLink: 'https://github.com/NMY0d4/NextJS_MyEcomm_front',
+    description:
+      "Cette application m'a permis de parfaire mes connaissances en react et de travailler sur la liaison front/dashboard. Elle est liée au dashboard que j'ai également codé 'from scratch', https://gm-web-next-js-my-ecom-admin.vercel.app/, si vous souhaitez avoir accès à l'administration du site, communiqué moi via mail ou par le formulaire de contact l'email google par lequel vous vous êtes inscrit sur le(s) site(s), et je vous donnerai l'autorisation d'accès total au dashboard afin que vous puissiez tester les différentes interactions mises en place.",
+    technologies: [
+      'NextJS, NextAuth',
+      'Node(backend)',
+      'Google Oauth',
+      'Stripe API, styled-Components',
+      'Tailwind css',
+      'Session Storage',
+      'several js libraries',
+      'working with Axios',
+      'dual dashboard/front system',
     ],
   },
 ];
