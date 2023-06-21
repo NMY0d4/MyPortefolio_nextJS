@@ -161,7 +161,7 @@ export const PROJECTS = [
     link: 'https://next-js-my-ecomm-front.vercel.app/',
     githubLink: 'https://github.com/NMY0d4/NextJS_MyEcomm_front',
     description:
-      "Cette application m'a permis de parfaire mes connaissances en react et de travailler sur la liaison front/dashboard. Elle est liée au dashboard que j'ai également codé 'from scratch', https://gm-web-next-js-my-ecom-admin.vercel.app/, si vous souhaitez avoir accès à l'administration du site, communiqué moi via mail ou par le formulaire de contact l'email google par lequel vous vous êtes inscrit sur le(s) site(s), et je vous donnerai l'autorisation d'accès total au dashboard afin que vous puissiez tester les différentes interactions mises en place.",
+      "This application has enabled me to perfect my knowledge of react and to work on the front/dashboard link. It's linked to the dashboard that I also coded 'from scratch', https://gm-web-next-js-my-ecom-admin.vercel.app/, if you'd like to have access to the site's administration, let me know via e-mail or the contact form the google e-mail address by which you registered on the site(s), and I'll give you full access to the dashboard so that you can test the various interactions set up.",
     technologies: [
       'NextJS, NextAuth',
       'Node(backend)',
