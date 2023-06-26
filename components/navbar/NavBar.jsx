@@ -122,7 +122,7 @@ function NavBar() {
           className={
             nav
               ? 'fixed left-0 top-0 w-[75%] sm:w-[65%] md:w-[45%] h-screen bg-nbgColor p-10 ease-in duration-500'
-              : 'fixed left-[-100%] top-0 p-10 ease-in duration-500'
+              : 'fixed left-[-120%] top-0 p-10 ease-in duration-500'
           }
         >
           <div>
