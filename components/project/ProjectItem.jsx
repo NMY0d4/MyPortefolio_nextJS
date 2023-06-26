@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { absoCenter, scale110 } from '../ui/utilClasses';
 
@@ -17,7 +17,7 @@ const ProjectItem = ({ project }) => {
 
   return (
     <div
-      className={`relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-400 rounded-xl p-4 group transition duration-500 ${
+      className={`relative flex items-center justify-center h-[50vh] w-full shadow-xl shadow-gray-400 rounded-xl p-4 group transition duration-500 ${
         isHovered ? 'bg-gradient-to-r from-primary to-secondary' : 'bg-white'
       }`}
       onMouseEnter={handleMouseEnter}
@@ -25,6 +25,9 @@ const ProjectItem = ({ project }) => {
     >
       <Image
         className='rounded-xl'
+        layout='fill'
+        objectFit='cover'
+        objectPosition='center'
         src={backgroundImg}
         placeholder='blur'
         alt={`$projet portefolio ${title}`}
