@@ -5,6 +5,7 @@ import rsGarageImg from '../public/assets/projects/hero_rs.jpg';
 import nasaProjectImg from '../public/assets/projects/nasaProject.jpg';
 import reactEcomProjectImg from '../public/assets/projects/reactEcom.jpg';
 import nextJsEcomProjectImg from '../public/assets/projects/nextJS_Ecomm.jpg';
+import nextJsSarahPortProjectImg from '../public/assets/projects/sarah-portfolio.png';
 
 export const PROJECTS = [
   {
@@ -172,6 +173,27 @@ export const PROJECTS = [
       'several js libraries',
       'working with Axios',
       'dual dashboard/front system',
+    ],
+  },
+  {
+    id: 'l2s9J3B7',
+    title: 'Sarah-Portefolio(in build...)',
+    backgroundImg: nextJsSarahPortProjectImg,
+    technology: 'NextJS',
+    projectUrl: '/projects/nextjsSarahPortfolio',
+    link: 'https://sarah-portefolio.vercel.app/',
+    githubLink: 'https://github.com/NMY0d4/Sarah_portefolio',
+    description: 'Under construction...',
+    technologies: [
+      'NextJS, NextAuth',
+      'Node(backend)',
+      'Google Oauth',
+      'Stripe API, styled-Components',
+      'Tailwind css',
+      'Session Storage',
+      'several js libraries',
+      'working with fetch(js native)',
+      'always in build',
     ],
   },
 ];
