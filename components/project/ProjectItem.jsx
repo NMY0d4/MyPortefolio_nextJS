@@ -17,7 +17,7 @@ const ProjectItem = ({ project }) => {
 
   return (
     <div
-      className={`flex items-center justify-center h-[50vh] w-full shadow-xl shadow-gray-400 rounded-xl p-3 group transition duration-500 ${
+      className={`flex items-center justify-center min-h-[300px] h-[50vh] w-full shadow-xl shadow-gray-400 rounded-xl p-3 group transition duration-500 ${
         isHovered ? 'bg-gradient-to-r from-primary to-secondary' : 'bg-white'
       }`}
     >
