@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @layer base {
@@ -51,7 +52,7 @@ html {
 
 @keyframes slideRight {
   0% {
-    transform: translateX(-120%);
+    transform: translateX(-140%);
     opacity: 0;
   }
   100% {
@@ -66,7 +67,7 @@ html {
     opacity: 1;
   }
   100% {
-    transform: translateX(-120%);
+    transform: translateX(-140%);
     opacity: 0;
   }
 }
@@ -77,4 +78,11 @@ html {
 
 .animate-slide-left {
   animation: slideLeft 0.35s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  html {
+    /* Verrouillez l'orientation en mode portrait */
+    orientation: portrait;
+  }
 }

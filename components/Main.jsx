@@ -9,7 +9,7 @@ const Main = () => {
   const { data: session } = useSession();
 
   return (
-    <div id='home' className='w-full h-screen text-center'>
+    <div id='home' className='w-full h-screen text-center mt-20 xl:mt-8'>
       <div className='max-w-contWithXl w-full h-full mx-auto p-2 flex justify-center items-center'>
         <div>
           <p className='uppercase text-sm tracking-widest text-gray-600'>

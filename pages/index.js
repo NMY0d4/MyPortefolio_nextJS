@@ -7,7 +7,7 @@ import { RevealWrapper } from 'next-reveal';
 
 export default function Home({ skills }) {
   return (
-    <div className='flex flex-col gap-1'>
+    <div className='flex flex-col gap-1 w-full'>
       <RevealWrapper>
         <Main />
       </RevealWrapper>

@@ -16,6 +16,9 @@ module.exports = {
       width: {
         contWithXl: '1240px',
       },
+      screens: {
+        xs: '480px', // Custom extra small breakpoint
+      },
     },
   },
   plugins: [],

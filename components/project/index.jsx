@@ -12,7 +12,7 @@ const Project = ({ projects }) => {
           Projects
         </p>
         <h2 className='py-4'>what I've Built</h2>
-        <div className='grid md:grid-cols-2 gap-8'>
+        <div className='grid lg:grid-cols-2 gap-8'>
           {reversedProjects.map((project, i) => (
             <RevealWrapper delay={i * 1500} key={project.id}>
               <ProjectItem project={project} />

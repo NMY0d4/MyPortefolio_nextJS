@@ -14,6 +14,10 @@ function MyApp({ Component, pageProps }) {
             <title>Greg | Developper</title>
             <link rel='icon' href='/faviconLogo.png'></link>
             <meta
+              name='viewport'
+              content='width=device-width, initial-scale=1.0'
+            ></meta>
+            <meta
               name='descritpion'
               content="Grégory Marini, développeur FullStack,page d'accueil de mon site portefolio en nextJS"
             />

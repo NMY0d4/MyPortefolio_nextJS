@@ -69,12 +69,12 @@ function NavBar() {
     <div
       className={`${
         positionRelative ? 'relative' : 'fixed'
-      } w-full h-20 bg-${navBg} ${
+      } w-screen h-auto bg-${navBg} ${
         shadow ? 'shadow-xl' : ''
       } z-[100] ease-in-out duration-300`}
     >
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
-        <Image src={gmLogo} alt='/' width='70' height='60' />
+        <Image src={gmLogo} alt='/' width='60' height='50' />
         <div>
           <ul
             style={{ color: `${linkColor}` }}
@@ -111,23 +111,24 @@ function NavBar() {
           status={activeNotification.status}
         />
       )}
-
       {/* Menu gauche petit écran */}
       <div
         className={
-          nav ? 'md:hidden fixed left-0 top-0 w-full h-screen bg-black/70' : ''
+          nav
+            ? 'md:hidden fixed z-50 left-0 top-0 w-full h-full bg-black/70'
+            : ''
         }
       >
         <div
           className={
             nav
-              ? 'fixed left-0 top-0 w-[75%] sm:w-[65%] md:w-[45%] h-screen bg-nbgColor p-10 ease-in duration-500'
-              : 'fixed left-[-120%] top-0 p-10 ease-in duration-500'
+              ? 'fixed left-0 top-0 w-[75%] sm:w-[65%] md:w-[45%] h-full overflow-scroll bg-nbgColor p-6 ease-in duration-500'
+              : 'fixed left-[-140%] top-0 p-10 ease-in duration-500'
           }
         >
           <div>
             <div className='flex w-full items-center justify-between'>
-              <Image src={gmLogo} width='60' height='50' alt='/' />
+              <Image src={gmLogo} width='55' height='45' alt='/' />
               <div
                 onClick={handleNav}
                 className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer'
@@ -141,7 +142,7 @@ function NavBar() {
               </p>
             </div>
           </div>
-          <div className='py-4 flex flex-col'>
+          <div className='py-2 flex flex-col'>
             <ul className='uppercase'>
               {navLinks.map(({ to, children }) => (
                 <Link key={uuidv4()} href={to}>
@@ -161,23 +162,22 @@ function NavBar() {
                   <BsFillPersonCheckFill />
                 </li>
               )}
-            </ul>
-
-            <div className='pt-40'>
-              <p className='uppercase tracking-widest text-primary'>
-                Let's connect
-              </p>
-              <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
-                {socialLinks.map((icon) => (
-                  <div
-                    key={uuidv4()}
-                    className={`${socialIconClasses} .m-icon-size`}
-                  >
-                    {icon}
-                  </div>
-                ))}
+              <div className='mt-40'>
+                <p className='uppercase tracking-widest text-primary'>
+                  Let's connect
+                </p>
+                <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
+                  {socialLinks.map((icon) => (
+                    <div
+                      key={uuidv4()}
+                      className={`${socialIconClasses} .m-icon-size`}
+                    >
+                      {icon}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </ul>
           </div>
         </div>
       </div>
